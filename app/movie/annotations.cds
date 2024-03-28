@@ -1,0 +1,1 @@
+using MyMovieEntity as service from '../../srv/service';
