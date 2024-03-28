@@ -1,7 +1,85 @@
-<mvc:View controllerName="com.movie.controller.Master"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+<mvc:View
+    controllerName="com.movie.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:ux="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="dynamicPageId"
+        toggleHeaderOnTitleClick="false"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+                <f:heading>
+                    <Title
+                        id="_IDGenTitle1"
+                        text="Genres"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:content>
+            <Table
+                id="movieTable"
+                mode="SingleSelectMaster"
+                itemPress=".onNavigate"
+                inset="false"
+                items="{
+					path: '/Genres',
+                    sorter: {path: 'GenreName'}
+				}"
+                class="sapFDynamicPageAlignContent"
+                width="auto"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <SearchField
+                            search="onSearch"
+                            width="17.5rem"
+                        />
+                        <OverflowToolbarButton
+                            icon="sap-icon://add"
+                            type="Transparent"
+                            press=".onAdd"
+                        />
+                        <OverflowToolbarButton
+                            id="_IDGenOverflowToolbarButton1"
+                            icon="sap-icon://sort"
+                            type="Transparent"
+                            press="onSort"
+                        />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column
+                        id="_IDGenColumn1"
+                        width="12em"
+                    >
+                        <Text
+                            id="_IDGenText1"
+                            text="Categoris"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        type="Navigation"
+                    >
+                        <cells>
+                            <ObjectIdentifier
+                                id="_IDGenObjectIdentifier1"
+                                text="{GenreName}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>

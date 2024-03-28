@@ -1,0 +1,65 @@
+<mvc:View
+    controllerName="com.movie.controller.DetailDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:ux="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+>
+    <f:DynamicPage
+        id="dynamicPageId"
+        toggleHeaderOnTitleClick="false"
+    >
+        <f:title >
+            <f:DynamicPageTitle id="ety">
+                <f:heading>
+                    <Title
+                        id="f"
+                        text="Movie Description"
+                    />
+                </f:heading>
+
+                <f:navigationActions>
+
+                    <OverflowToolbarButton
+                        type="Transparent"
+                        icon="sap-icon://full-screen"
+                        press=".handleFullScreen"
+                        id="enterFullScreenBtn"
+                        tooltip="Enter Full Screen Mode"
+                        visible="{= ${/actionButtonsInfo/endColumn/fullScreen} !== null }"
+                    />
+                    <OverflowToolbarButton
+                        id="enterClose"
+                        type="Transparent"
+                        icon="sap-icon://decline"
+                        press=".handleClose"
+                        tooltip="Close middle column"
+                        visible="{= ${/actionButtonsInfo/endColumn/closeColumn} !== null }"
+                    />
+                </f:navigationActions>
+
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <VBox id="detailDetail">
+                <Image id="_IDGenImage1"
+                    src="{Images}"
+                    width="200px"
+                />
+                <Label text="Film Name" />
+                <Text text="{Title}" />
+                <Text/>
+                <Label  text="Description" />
+                <Text  text="{Description}"/>
+                <Text />
+                <Label  text="Release Date"/>
+                <Text  text="{ReleaseDate}"/>
+                <Text  />
+                <Label text="Rating" />
+                <RatingIndicator value="{Rating}" maxValue="10" visualMode="Half"/>
+            </VBox>             
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

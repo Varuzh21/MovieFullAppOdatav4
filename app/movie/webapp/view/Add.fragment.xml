@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog
+        id="EditDialog"
+        title="Movie Create"
+        draggable="true"
+        resizable="true"
+        contentWidth="400px"
+        contentHeight="auto"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <form:SimpleForm
+                id='idMovieForm'
+                editable="true"
+                layout="ColumnLayout"
+            >
+                <Label text="Name" />
+                <Input
+                    id="movieName"
+                    type="Text"
+                    value="{Title}"
+                    required="true"
+                    liveChange=".onInputChange"
+                />
+
+                <Label text="Image" />
+                <Input
+                    id="movieImage"
+                    value="{Images}"
+                    required="true"
+                />
+
+                <Label text="Description" />
+                <Input
+                    id="moavieDescription"
+                    value="{Description}"
+                    required="true"
+                    liveChange=".onInputChange"
+                />
+
+                <Label text="Release Date" />
+                <DatePicker
+                    id="endDateInput"
+                    value="{ReleaseDate}"
+                    required="true"
+                    liveChange=".onInputChange"
+                />
+
+                <Label text="Rating" />
+                <Input
+                    id="endDateInput_"
+                    value="{Rating}"
+                    required="true"
+                    liveChange=".onInputChange"
+                />
+            </form:SimpleForm>
+        </content>
+        <beginButton>
+            <Button
+                text="Create"
+                press="onCreate"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="Cancel"
+                press="onCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

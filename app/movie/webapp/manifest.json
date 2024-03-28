@@ -92,16 +92,33 @@
         "viewType": "XML",
         "async": true,
         "viewPath": "com.movie.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
+        "controlAggregation": "beginColumnPages",
+        "controlId": "fcl",
         "clearControlAggregation": false
       },
       "routes": [
         {
           "name": "RouteMaster",
-          "pattern": ":?query:",
+          "pattern": "",
           "target": [
             "TargetMaster"
+          ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "genre/{genreId}/{layout}",
+          "target": [
+            "TargetMaster",
+            "Detail"
+          ]
+        },
+        {
+          "name": "DetailDetail",
+          "pattern": "genre/{genreId}/movie/{movieId}/{layout}",
+          "target": [
+            "TargetMaster",
+            "Detail",
+            "DetailDetail"
           ]
         }
       ],
@@ -109,9 +126,25 @@
         "TargetMaster": {
           "viewType": "XML",
           "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "Master",
-          "viewName": "Master"
+          "viewName": "Master",
+          "level": 1
+        },
+        "Detail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "midColumnPages",
+          "viewId": "Detail",
+          "viewName": "Detail",
+          "level": 2
+        },
+        "DetailDetail":{
+          "viewType": "XML",
+          "transition": "slide",
+          "controlAggregation": "endColumnPages",
+          "viewId": "DetailDetail",
+          "viewName": "DetailDetail",
+          "level": 3
         }
       }
     },
